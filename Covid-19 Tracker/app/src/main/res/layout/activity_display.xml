@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DisplayActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+    <soup.neumorphism.NeumorphCardView
+        android:id="@+id/chart_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        style="@style/Sources"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/given_state"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Covid Case Details"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/light_text_color"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                >
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/covidPieChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical"
+                android:weightSum="4"
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    >
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/neon_green"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Active Cases"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    >
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/scarlet_red"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Confirmed Cases"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    >
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/meganta"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Deceased Cases"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    >
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/aqua"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Recovered Cases"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="100"
+                >
+                <TextView
+                    android:id="@+id/active_cases"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="50"
+                    android:gravity="center_vertical"
+                    android:text="Active cases: "
+                    style="@style/Active"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/active"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="50"
+                    android:gravity="center_vertical"
+                    android:text="0"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="100"
+                >
+                <TextView
+                    android:id="@+id/confirmed_cases"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    style="@style/Confirmed"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center_vertical"
+                    android:text="Confirmed cases: "
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="16sp"
+                    />
+                <TextView
+                    android:id="@+id/confirmed"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="50"
+                    android:gravity="center_vertical"
+                    android:text="0"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="100"
+                >
+                <TextView
+                    android:id="@+id/deceased_cases"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:gravity="center_vertical"
+                    android:text="Deceased cases: "
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    style="@style/Deceased"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/deceased"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="50"
+                    android:gravity="center_vertical"
+                    android:text="0"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="100"
+                >
+                <TextView
+                    android:id="@+id/recovered_cases"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:gravity="center_vertical"
+                    android:text="Recovered cases: "
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins"
+                    style="@style/Recovered"
+                    />
+                <TextView
+                    android:id="@+id/recovered"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="50"
+                    android:gravity="center_vertical"
+                    android:text="0"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </soup.neumorphism.NeumorphCardView>
+
+        <soup.neumorphism.NeumorphCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Sources"
+            >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="Delta Variant Details"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins"
+                        android:textAlignment="center"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@color/light_text_color"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="190dp"
+                        android:weightSum="2"
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            >
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/deltaPieChart"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="vertical"
+                            android:weightSum="4"
+
+                            >
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:orientation="horizontal"
+                                android:layout_weight="1"
+                                >
+                                <View
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:background="@color/neon_green"
+                                    android:layout_gravity="center"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Active Cases"
+                                    android:textSize="14sp"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/poppins"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:orientation="horizontal"
+                                android:layout_weight="1"
+                                >
+                                <View
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:background="@color/meganta"
+                                    android:layout_gravity="center"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Deceased Cases"
+                                    android:textSize="14sp"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/poppins"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:orientation="horizontal"
+                                android:layout_weight="1"
+                                >
+                                <View
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:background="@color/aqua"
+                                    android:layout_gravity="center"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Recovered Cases"
+                                    android:textSize="14sp"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/poppins"
+                                    />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:weightSum="100"
+                        >
+                        <TextView
+                            android:id="@+id/delta_active_cases"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:gravity="center_vertical"
+                            android:text="Active cases: "
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="16sp"
+                            style="@style/Active"
+                            />
+                        <TextView
+                            android:id="@+id/delta_active"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="50"
+                            android:gravity="center_vertical"
+                            android:text="0"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:weightSum="100"
+                        >
+                        <TextView
+                            android:id="@+id/delta_deceased_cases"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:gravity="center_vertical"
+                            android:text="Deceased cases: "
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            style="@style/Deceased"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/delta_deceased"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="50"
+                            android:gravity="center_vertical"
+                            android:text="0"
+                            android:fontFamily="@font/poppins"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:weightSum="100"
+                        android:layout_marginBottom="10dp"
+                        >
+                        <TextView
+                            android:id="@+id/delta_recovered_cases"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:gravity="center_vertical"
+                            android:text="Recovered cases: "
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            style="@style/Recovered"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/delta_recovered"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="50"
+                            android:gravity="center_vertical"
+                            android:text="0"
+                            android:fontFamily="@font/poppins"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+        </soup.neumorphism.NeumorphCardView>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/home_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="30dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#FF911C "
+            android:elevation="5dp"
+            android:text="Other States"
+            app:cornerRadius="15dp"
+            android:fontFamily="@font/poppins"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

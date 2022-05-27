@@ -1,0 +1,42 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Covid19Tracker" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >#49484A</item>
+        <!-- Customize your theme here. -->
+        <item name="android:background">@color/theme_light_bg</item>
+
+    </style>
+    <style name="MyTextView">
+        <item name="android:textColor">@color/light_text_color</item>
+    </style>
+    <style name="AppTitle">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="RecycleTextColor">
+        <item name="android:textColor">@color/light_text_color</item>
+    </style>
+    <style name="Active">
+        <item name="android:textColor">@color/darker_green</item>
+    </style>
+    <style name="Confirmed">
+        <item name="android:textColor">@color/scarlet_red</item>
+    </style>
+    <style name="Deceased">
+        <item name="android:textColor">@color/darker_meganta</item>
+    </style>
+    <style name="Recovered">
+        <item name="android:textColor">@color/darker_aqua</item>
+    </style>
+    <style name="img_src">
+        <item name="android:src">@drawable/letsgrowmorelight</item>
+    </style>
+</resources>

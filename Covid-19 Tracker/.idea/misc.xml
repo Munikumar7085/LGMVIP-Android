@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/LGM/Covid-19 Tracker/app/src/main/res/drawable/dark_bg_gradient.xml" value="0.152" />
+        <entry key="..\:/LGM/Covid-19 Tracker/app/src/main/res/layout/activity_display.xml" value="0.2" />
+        <entry key="..\:/LGM/Covid-19 Tracker/app/src/main/res/layout/activity_district.xml" value="0.19791666666666666" />
+        <entry key="..\:/LGM/Covid-19 Tracker/app/src/main/res/layout/activity_main.xml" value="0.19791666666666666" />
+        <entry key="..\:/LGM/Covid-19 Tracker/app/src/main/res/layout/activity_splash.xml" value="0.19384057971014493" />
+        <entry key="..\:/LGM/Covid-19 Tracker/app/src/main/res/layout/testing.xml" value="0.136" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
