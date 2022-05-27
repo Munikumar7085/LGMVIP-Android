@@ -37,14 +37,14 @@ import java.io.InputStream;
 
 @SuppressWarnings({"deprecation", "ConstantConditions"})
 public class MainActivity extends AppCompatActivity {
+    private static String tag="mainfun";
     ActivityMainBinding binding;
     InputImage image;
     FaceDetector detector;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     String currentPath;
     boolean doubleBackToExitPressedOnce = false;
-    Uri deleteImage;
-    String tag="faces";
+    Uri imageUri;
     @SuppressLint("QueryPermissionsNeeded")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,16 +52,17 @@ public class MainActivity extends AppCompatActivity {
         binding =ActivityMainBinding.inflate(getLayoutInflater());
         View root= binding.getRoot();
         setContentView(root);
+        Log.i(tag,"mainActivity started");
         binding.takePhoto.setOnClickListener(view -> {
              String fileName="myImage";
             File storageDirectory=getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-
+            Log.i(tag,"take photo button clicked");
             try {
+
                 File imageFile=File.createTempFile(fileName,".jpg",storageDirectory);
                 currentPath=imageFile.getAbsolutePath();
-               Uri imageUri= FileProvider.getUriForFile(MainActivity.this,
+               imageUri= FileProvider.getUriForFile(MainActivity.this,
                        "com.example.facedetection.fileprovider",imageFile);
-               deleteImage =imageUri;
                Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
                if (null != intent.resolveActivity(
@@ -81,27 +82,33 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i(tag,"onActivityResult method called");
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bitmap bitmap = null;
             try {
-                 bitmap= handleSamplingAndRotationBitmap(this, deleteImage);
+                 bitmap= handleSamplingAndRotationBitmap(MainActivity.this, imageUri);
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
+            if(bitmap==null)
+            {
+                bitmap=BitmapFactory.decodeFile(currentPath);
+            }
             binding.testImgView.setImageBitmap(bitmap);
 
             detectFace(bitmap);
-            Log.i(tag,"number of faces detected");
-            imageFaceDetection(bitmap);
-            Log.i(tag,"identified faces in the image");
 
-            Log.i(tag,"image deleted");
+            imageFaceDetection(bitmap);
+
+
+
         }
     }
     public static Bitmap handleSamplingAndRotationBitmap(Context context, Uri selectedImage)
             throws IOException {
+        Log.i(tag,"handleSamplingAndRotationBitmap called");
         int MAX_HEIGHT = 1024;
         int MAX_WIDTH = 1024;
 
@@ -124,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         return img;
     }
     private static Bitmap rotateImageIfRequired(Context context, Bitmap img, Uri selectedImage) throws IOException {
-
+        Log.i(tag,"rotateImageIfRequired method called");
         InputStream input = context.getContentResolver().openInputStream(selectedImage);
         ExifInterface ei;
         if (Build.VERSION.SDK_INT > 23)
@@ -146,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private static Bitmap rotateImage(Bitmap img, int degree) {
+        Log.i(tag,"rotateImage method called");
         Matrix matrix = new Matrix();
         matrix.postRotate(degree);
         Bitmap rotatedImg = Bitmap.createBitmap(img, 0, 0, img.getWidth(), img.getHeight(), matrix, true);
@@ -154,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private static int calculateInSampleSize(BitmapFactory.Options options,
                                              int reqWidth, int reqHeight) {
+        Log.i(tag,"calculateInSampleSize method called");
         // Raw height and width of image
         final int height = options.outHeight;
         final int width = options.outWidth;
@@ -175,18 +184,19 @@ public class MainActivity extends AppCompatActivity {
         return inSampleSize;
     }
     public void deleteImage() {
-
-        File fileDelete = new File(currentPath);
+        Log.i(tag,"delete method called");
+        File fileDelete =new File(currentPath);
         if (fileDelete.exists()) {
             if (fileDelete.delete()) {
-                Log.e("-->", "file Deleted :");
+                Log.e(tag, "file Deleted :");
 
             } else {
-                Log.e("-->", "file not Deleted :");
+                Log.e(tag, "file not Deleted :");
             }
         }
     }
     private void imageFaceDetection(Bitmap bitmap) {
+        Log.i(tag,"imageFaceDetection method called");
         InputImage curImage = InputImage.fromBitmap(bitmap, 0);
         binding.testImgView.setImageBitmap(bitmap);
         try {
@@ -221,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
     }
     @SuppressLint("DefaultLocale")
     private void detectFace(Bitmap bitmap) {
+        Log.i(tag,"detectface method called");
         FaceDetectorOptions options
                 = new FaceDetectorOptions
                 .Builder()
@@ -297,6 +308,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        Log.i(tag,"OnbackMethod method called");
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed();
             return;
