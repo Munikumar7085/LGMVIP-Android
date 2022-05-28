@@ -20,9 +20,7 @@ public class ResultDialog  extends DialogFragment {
     {
 
        binding= FragmentResultdialogBinding.inflate(inflater,container,false);
-
         String resultText;
-
         Bundle bundle = getArguments();
         assert bundle != null;
         resultText = bundle.getString(

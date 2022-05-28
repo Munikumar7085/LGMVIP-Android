@@ -208,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
                             .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
                             .setLandmarkMode(FaceDetectorOptions.LANDMARK_MODE_ALL)
                             .setClassificationMode(FaceDetectorOptions.CLASSIFICATION_MODE_ALL)
-                            .setContourMode(FaceDetectorOptions.CONTOUR_MODE_ALL)
                             .build();
 
             FaceDetector detector = FaceDetection.getClient(highAccuracyOpts);
@@ -240,11 +239,9 @@ public class MainActivity extends AppCompatActivity {
                 .setLandmarkMode(
                         FaceDetectorOptions
                                 .LANDMARK_MODE_ALL)
-                .setContourMode(FaceDetectorOptions.CONTOUR_MODE_ALL)
                 .setClassificationMode(
                         FaceDetectorOptions
                                 .CLASSIFICATION_MODE_ALL)
-                .enableTracking()
                 .build();
         try {
             image = InputImage.fromBitmap(bitmap,  0);
